@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10130f">
+  <meta name="description" content="Install ESP32 Smart OLED Robot firmware directly from your browser.">
+  <meta property="og:title" content="ESP32 Smart OLED Robot — Web Installer">
+  <meta property="og:description" content="Plug in USB. Select your board. Your robot is ready.">
+  <meta property="og:image" content="og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>ESP32 Smart OLED Robot — Web Installer</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="styles-compact-v3.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <script type="module" src="app-compact-v3.js"></script>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="ESP32 Robot Installer">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span>
+      </span>
+      <span>SMART <b>ROBOT</b></span>
+    </a>
+    <div class="header-actions">
+      <div class="version"><i></i> Firmware v1.0</div>
+      <button type="button" class="serial-trigger-btn" id="open-serial-modal" title="Open USB Serial Controller">
+        <span>🔌</span> Serial Controller
+      </button>
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button type="button" data-language="en" aria-pressed="true">EN</button>
+        <span>/</span>
+        <button type="button" data-language="vi" aria-pressed="false">VI</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">ESP32 · 1.3" OLED · SMART ROBOT</div>
+        <h1 data-i18n-html="heroTitle">Plug in USB.<br>Wake up your <em>Robot.</em></h1>
+        <p class="lede" data-i18n="heroDescription">
+          Web installer for your ESP32 smart desk robot. Simple and fast. No coding tools needed.
+        </p>
+
+        <div class="installer-card" data-installer-panel>
+          <div class="installer-heading">
+            <div>
+              <span class="label" data-i18n="webInstaller">WEB INSTALLER</span>
+              <strong data-i18n="readyToFlash">Ready to flash firmware</strong>
+            </div>
+            <span class="browser-status" data-browser-status>
+              Checking browser...
+            </span>
+          </div>
+
+          <esp-web-install-button manifest="manifest.json">
+            <button class="install-button" slot="activate" type="button">
+              <span class="usb-icon" aria-hidden="true">⌁</span>
+              <span data-i18n="installButton">Connect and Install Robot</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </button>
+            <span class="unsupported-message" slot="unsupported" data-i18n="unsupportedBrowser">
+              Your browser does not support USB flashing. Please use Chrome or Edge on a computer.
+            </span>
+            <span class="unsupported-message" slot="not-allowed" data-i18n="openNewTab">
+              Please open this page in a new tab to allow USB access.
+            </span>
+          </esp-web-install-button>
+
+          <p class="fine-print" data-i18n="usbHint">
+            Use a USB data cable. Hold BOOT and press RESET if your board is not found.
+          </p>
+          <button type="button" class="btn-serial-card" id="open-serial-modal-2">
+            🔌 Open Serial Controller — send commands &amp; read robot log
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="real-photo-stack" aria-label="Smart robot preview">
+          <figure class="hero-photo hero-photo-one">
+            <img src="wall-e-real-01.jpg" width="1448" height="1086" loading="eager" data-i18n-alt="realRobotAltOne"
+              alt="ESP32 smart desk robot with OLED screen">
+          </figure>
+          <figure class="hero-photo hero-photo-two">
+            <img src="wall-e-real-02.jpg" width="1448" height="1086" loading="eager" data-i18n-alt="realRobotAltTwo"
+              alt="Smart robot monitoring plant soil moisture">
+          </figure>
+        </div>
+
+        <div class="robot-visual" aria-label="Robot face screen">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="face">
+            <div class="face-top">
+              <span class="bolt"></span>
+              <span class="camera-dot"></span>
+            </div>
+            <div class="screen">
+              <div class="eye eye-left"><span></span></div>
+              <div class="eye eye-right"><span></span></div>
+              <div class="scanline"></div>
+            </div>
+            <div class="face-label">
+              <span>OLED</span>
+              <small>ROBOT · ESP32</small>
+            </div>
+          </div>
+          <div class="visual-note note-top">EYES · CLOCK · WEATHER · GARDEN</div>
+          <div class="visual-note note-bottom">STATUS / READY</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" aria-labelledby="steps-title">
+      <div class="section-heading">
+        <span class="section-index">01—03</span>
+        <h2 id="steps-title" data-i18n="threeSteps">Three easy steps</h2>
+        <p data-i18n="localProcess">Everything runs locally in your browser.</p>
+      </div>
+
+      <ol class="step-grid">
+        <li>
+          <span class="step-number">01</span>
+          <div class="step-icon cable" aria-hidden="true"></div>
+          <h3 data-i18n="stepOneTitle">1. Plug in USB</h3>
+          <p data-i18n="stepOneBody">Connect your ESP32 board to your computer with a USB cable.</p>
+        </li>
+        <li>
+          <span class="step-number">02</span>
+          <div class="step-icon port" aria-hidden="true"></div>
+          <h3 data-i18n="stepTwoTitle">2. Select Board</h3>
+          <p data-i18n="stepTwoBody">Click install and select your ESP32 COM port.</p>
+        </li>
+        <li>
+          <span class="step-number">03</span>
+          <div class="step-icon spark" aria-hidden="true">✦</div>
+          <h3 data-i18n="stepThreeTitle">3. Robot Wakes Up</h3>
+          <p data-i18n="stepThreeBody">Keep the cable plugged in. Your robot will restart and start running.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="steps" style="padding-top: 0;" aria-labelledby="features-title">
+      <div class="section-heading">
+        <span class="section-index">FUNCTIONS</span>
+        <h2 id="features-title" data-i18n="beforeStart">ROBOT FEATURES</h2>
+        <p>What this smart desk robot can do for you.</p>
+      </div>
+
+      <ol class="step-grid">
+        <li>
+          <span class="step-number">01</span>
+          <div class="step-icon spark" style="font-size: 38px; color: var(--teal);" aria-hidden="true">⏱</div>
+          <h3 data-i18n="featureClockTitle">Clock &amp; Smart Alarm</h3>
+          <p data-i18n="featureClockBody">Auto-syncs time via Internet. Alarm with buzzer and 5-minute snooze.</p>
+        </li>
+        <li>
+          <span class="step-number">02</span>
+          <div class="step-icon spark" style="font-size: 38px; color: var(--orange);" aria-hidden="true">☀</div>
+          <h3 data-i18n="featureWeatherTitle">Live Weather Station</h3>
+          <p data-i18n="featureWeatherBody">Shows real-time temperature, humidity, and rain on the OLED display.</p>
+        </li>
+        <li>
+          <span class="step-number">03</span>
+          <div class="step-icon spark" style="font-size: 38px; color: #fbbf24;" aria-hidden="true">💡</div>
+          <h3 data-i18n="featureLampTitle">Desk Lamp Mode</h3>
+          <p data-i18n="featureLampBody">Soft LED light for your desk. Turn it on or off with a quick button press.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="details">
+      <div class="details-copy">
+        <span class="label" data-i18n="beforeStart">ROBOT FEATURES</span>
+        <h2 data-i18n-html="fullInstall">All-in-one firmware.<br>Ready to use out of the box.</h2>
+      </div>
+      <div class="spec-list">
+        <div><span data-i18n="board">Board</span><strong data-i18n="boardVal">ESP32 Dev Module</strong></div>
+        <div><span data-i18n="screen">Screen</span><strong data-i18n="screenVal">1.3-inch OLED (SH1106)</strong></div>
+        <div><span data-i18n="sensors">Sensors</span><strong data-i18n="sensorsVal">Soil Moisture · Buttons ·
+            Buzzer</strong></div>
+        <div><span data-i18n="cloud">Cloud &amp; IoT</span><strong data-i18n="cloudVal">OpenWeather</strong>
+        </div>
+      </div>
+      <aside class="notice">
+        <span class="notice-mark">!</span>
+        <div>
+          <strong data-i18n="importantNote">Important note</strong>
+          <p data-i18n-html="wifiWarning">
+            Flashing firmware will reset saved Wi-Fi. After restarting,
+            use the on-screen menu to connect to your Wi-Fi network.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="brand footer-brand">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+      <span>SMART <b>ROBOT</b></span>
+    </div>
+    <p><span data-i18n="designedBy">ESP32 Smart OLED Robot Project</span> · <span data-year></span></p>
+    <p class="footer-state"><i></i> <span data-i18n="installerOnline">Web Installer Online</span></p>
+  </footer>
+
+  <!-- ======== WEB SERIAL CONTROLLER MODAL ======== -->
+  <div class="serial-modal-backdrop" id="serial-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="serial-modal-box">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="modal-title">🔌 USB Serial Controller</h2>
+          <span class="status-indicator" id="serial-status">
+            <span class="status-dot" id="serial-dot"></span>
+            <span id="serial-status-text">Disconnected</span>
+          </span>
+        </div>
+        <button class="modal-close-btn" id="close-serial-modal" aria-label="Close">✕</button>
+      </div>
+
+      <!-- Toolbar: connect + quick commands -->
+      <div class="modal-toolbar">
+        <div class="toolbar-group">
+          <button class="btn-ctrl btn-ctrl-primary" id="btn-serial-connect">⚡ Connect USB (115200)</button>
+          <button class="btn-ctrl btn-ctrl-danger" id="btn-serial-disconnect" disabled>✕ Disconnect</button>
+          <button class="btn-ctrl" id="btn-clear-log">🗑 Clear</button>
+        </div>
+        <div class="toolbar-group">
+          <span style="font-size:11px;color:var(--muted)">Quick send:</span>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="LED_ON" disabled>💡 LED ON</button>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="LED_OFF" disabled>💡 LED OFF</button>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="PHOTO" disabled>📸 PHOTO</button>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="PERSON" disabled>👁 PERSON</button>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="NOPERSON" disabled>😴 NO PERSON</button>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="ONE" disabled>🎭 EFFECT</button>
+          <button class="btn-ctrl btn-quick-cmd" data-cmd="STATUS" disabled>📊 STATUS</button>
+        </div>
+      </div>
+
+      <!-- Terminal log -->
+      <div class="modal-terminal" id="serial-terminal" aria-live="polite"></div>
+
+      <!-- Input bar -->
+      <div class="modal-input-bar">
+        <input
+          type="text"
+          class="serial-input"
+          id="serial-text-input"
+          placeholder="Type command and press Enter (e.g. LED_ON, PHOTO...)"
+          disabled
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="btn-ctrl btn-ctrl-primary" id="btn-serial-send" disabled>Send →</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="serial.js"></script>
+</body>
+
+</html>
